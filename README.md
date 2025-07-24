@@ -323,13 +323,7 @@ npm run db:push      # Push schema to database
 
 
 
-## 📞 Support
 
-- **Email**: [support@example.com](mailto:support@example.com)
-- **Issues**: Create an issue in the respective GitHub repository
-- **Documentation**: [docs.example.com](https://docs.example.com)
-
----
 
 ## 📄 License
 
@@ -339,15 +333,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-## 🙏 Acknowledgments
 
-- [Next.js](https://nextjs.org/) for the amazing React framework
-- [Vercel](https://vercel.com/) for seamless deployment
-- [Prisma](https://www.prisma.io/) for excellent database tooling
-- [Tailwind CSS](https://tailwindcss.com/) for utility-first styling
-- [Cohere](https://cohere.ai/) / [OpenAI](https://openai.com/) for AI capabilities
-
----
 
 **Built with ❤️ by [Farsit-007](https://github.com/Farsit-007)**
 
