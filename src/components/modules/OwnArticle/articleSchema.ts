@@ -9,7 +9,7 @@ export const articleFormSchema = z.object({
   body: z
     .string()
     .trim()
-    .min(100, { message: "Content must be at least 100 characters" }),
+    .min(250, { message: "Content must be at least 250 characters" }),
   tags: z
     .array(z.string())
     .min(1, { message: "Please select at least one tag" }),

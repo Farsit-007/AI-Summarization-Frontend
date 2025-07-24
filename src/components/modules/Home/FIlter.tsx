@@ -31,12 +31,10 @@ export function ArticleFilters() {
     "TypeScript",
   ];
 
-  // States for input & selected tag
   const [searchTerm, setSearchTerm] = useState("");
   const [debouncedSearchTerm, setDebouncedSearchTerm] = useState(searchTerm);
   const [selectedTag, setSelectedTag] = useState("all");
 
-  // Sync state from URL query params when they change
   useEffect(() => {
     const search = searchParams.get("searchTerm") || "";
     const tag = searchParams.get("tag") || "all";
@@ -45,7 +43,6 @@ export function ArticleFilters() {
     setSelectedTag(tag);
   }, [searchParams]);
 
-  // Debounce searchTerm updates (300ms delay)
   useEffect(() => {
     const handler = setTimeout(() => {
       setDebouncedSearchTerm(searchTerm);
@@ -54,17 +51,14 @@ export function ArticleFilters() {
     return () => clearTimeout(handler);
   }, [searchTerm]);
 
-  // Update URL query params when debouncedSearchTerm changes
   useEffect(() => {
     updateQuery("searchTerm", debouncedSearchTerm);
   }, [debouncedSearchTerm]);
 
-  // Update URL query param for tag immediately on change
   useEffect(() => {
     updateQuery("tag", selectedTag);
   }, [selectedTag]);
 
-  // Helper to update URL query params without scrolling & replace history entry
   const updateQuery = (query: string, value: string) => {
     const params = new URLSearchParams(searchParams.toString());
 
@@ -77,17 +71,15 @@ export function ArticleFilters() {
     router.replace(`${pathname}?${params.toString()}`, { scroll: false });
   };
 
-  // Input change handler (updates local searchTerm state)
+ 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);
   };
 
-  // Tag select handler
   const handleTagChange = (value: string) => {
     setSelectedTag(value);
   };
 
-  // Logout handler
   const handleLogout = async () => {
     await logout();
     setIsLoading(true);
@@ -139,7 +131,7 @@ export function ArticleFilters() {
           </Button>
           <Button
             variant="outline"
-            className="border-black text-black hover:bg-gray-100"
+            className="border-black text-black cursor-pointer hover:bg-gray-100"
             onClick={handleLogout}
           >
             Logout

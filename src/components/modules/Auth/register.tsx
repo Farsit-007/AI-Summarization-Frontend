@@ -16,12 +16,10 @@ import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import Link from "next/link";
 import { register } from "@/services/AuthServices";
 import { toast } from "sonner";
-import { useUser } from "@/context/UserContext";
 import { useRouter } from "next/navigation";
 import { registrationSchema } from "./registerSchema";
 
 const RegisterForm = () => {
-  const { setIsLoading } = useUser();
   const router = useRouter();
   const form = useForm({
     resolver: zodResolver(registrationSchema),
@@ -32,17 +30,15 @@ const RegisterForm = () => {
   } = form;
 
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
-    console.log(data);
     try {
-      setIsLoading(true);
+      
       const res = await register(data);
       if (res.success) {
         toast.success(res?.message);
         router.push("/login");
-        setIsLoading(false);
+       
       } else {
         toast.error(res?.message);
-        setIsLoading(false);
       }
     } catch (error: any) {
       toast.error(error?.message);

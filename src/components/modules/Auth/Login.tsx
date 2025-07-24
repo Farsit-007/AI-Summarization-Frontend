@@ -16,13 +16,11 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { toast } from "sonner";
 
-import { useUser } from "@/context/UserContext";
 import { loginSchema } from "./loginSchema";
 import { loginUser } from "@/services/AuthServices";
 
 const LoginForm = () => {
   const searchParams = useSearchParams();
-  const { setIsLoading } = useUser();
   const redirect = searchParams.get("redirectPath");
   const router = useRouter();
   const form = useForm({
@@ -35,22 +33,18 @@ const LoginForm = () => {
 
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
     try {
-      setIsLoading(true);
       const res = await loginUser(data);
-
       if (res.success) {
-        toast.success(res?.message);
+        toast.success("Login successful");
         router.push(redirect || "/my-article");
-        setIsLoading(true);
+        router.refresh();
       } else {
         toast.error(res?.message || "Login failed");
       }
     } catch (error: any) {
       console.error(error);
       toast.error("Something went wrong");
-    } finally {
-      setIsLoading(false);
-    }
+    } 
   };
 
   const demoUser = {
@@ -60,7 +54,6 @@ const LoginForm = () => {
 
   return (
     <div className="max-w-md w-full mx-auto p-8 rounded-2xl shadow-xl border border-gray-100 bg-white dark:bg-gray-900 dark:border-gray-800">
-     
       <div className="text-center mb-8">
         <h1 className="text-3xl font-bold ">Welcome Back</h1>
         <p className="text-gray-500 dark:text-gray-400 mt-2">
@@ -71,7 +64,7 @@ const LoginForm = () => {
       <div className="mb-6">
         <Button
           variant="outline"
-          className="w-full bg-black text-white"
+          className="w-full bg-black  cursor-pointer text-white"
           onClick={() => {
             form.setValue("email", demoUser.email);
             form.setValue("password", demoUser.password);
@@ -84,7 +77,6 @@ const LoginForm = () => {
 
       <Form {...form}>
         <form className="space-y-6" onSubmit={form.handleSubmit(onSubmit)}>
-         
           <FormField
             control={form.control}
             name="email"
@@ -131,7 +123,7 @@ const LoginForm = () => {
           />
 
           <Button
-            className="w-full bg-black text-white"
+            className="w-full bg-black cursor-pointer text-white"
             type="submit"
             disabled={isSubmitting}
           >

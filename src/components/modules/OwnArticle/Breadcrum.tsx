@@ -14,17 +14,29 @@ const Breadcrum = () => {
     router.refresh();
     router.push("/");
   };
+
+  const handleGoToAllArticles = () => {
+    setIsLoading(true);
+    router.push("/");
+  };
+
   if (isLoading) {
     return <div className="h-16">Loading..</div>;
   }
   return (
     <div className="flex flex-col my-10 sm:flex-row gap-4 items-center justify-end p-4 bg-white rounded-lg shadow-sm border border-gray-200 mb-6">
       <div className="flex justify-between gap-2">
-        <Button asChild className="bg-black  cursor-pointer text-white hover:bg-gray-800">
-          <Link href="/">All Article</Link>
-        </Button>{" "}
+        <Button
+          className="bg-black cursor-pointer text-white hover:bg-gray-800"
+          onClick={handleGoToAllArticles}
+        >
+          All Article
+        </Button>
         <div className="flex  gap-2">
-          <Button asChild className="bg-black cursor-pointer text-white hover:bg-gray-800">
+          <Button
+            asChild
+            className="bg-black cursor-pointer text-white hover:bg-gray-800"
+          >
             <Link href="/create-article"> Create Article</Link>
           </Button>{" "}
           <Button
