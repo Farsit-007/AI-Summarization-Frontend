@@ -54,13 +54,13 @@ const LoginForm = () => {
   };
 
   const demoUser = {
-    email: "demo@example.com",
-    password: "demopassword123",
+    email: "robayatfarsit@gmail.com",
+    password: "123456",
   };
 
   return (
     <div className="max-w-md w-full mx-auto p-8 rounded-2xl shadow-xl border border-gray-100 bg-white dark:bg-gray-900 dark:border-gray-800">
-      {/* Header */}
+     
       <div className="text-center mb-8">
         <h1 className="text-3xl font-bold ">Welcome Back</h1>
         <p className="text-gray-500 dark:text-gray-400 mt-2">
@@ -68,7 +68,6 @@ const LoginForm = () => {
         </p>
       </div>
 
-      {/* Demo button */}
       <div className="mb-6">
         <Button
           variant="outline"
@@ -85,7 +84,7 @@ const LoginForm = () => {
 
       <Form {...form}>
         <form className="space-y-6" onSubmit={form.handleSubmit(onSubmit)}>
-          {/* Email Field */}
+         
           <FormField
             control={form.control}
             name="email"
@@ -107,7 +106,6 @@ const LoginForm = () => {
             )}
           />
 
-          {/* Password Field */}
           <FormField
             control={form.control}
             name="password"
@@ -132,7 +130,6 @@ const LoginForm = () => {
             )}
           />
 
-          {/* Submit Button */}
           <Button
             className="w-full bg-black text-white"
             type="submit"
@@ -141,7 +138,6 @@ const LoginForm = () => {
             {isSubmitting ? "Signing in..." : "Sign In"}
           </Button>
 
-          {/* Register Link */}
           <div className="text-center text-sm text-gray-600 dark:text-gray-400">
             Don&#39;t have an account?{" "}
             <Link

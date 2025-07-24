@@ -51,7 +51,7 @@ const RegisterForm = () => {
 
   return (
     <div className="max-w-md w-full mx-auto p-8 rounded-2xl shadow-xl border border-gray-100 bg-white dark:bg-gray-900 dark:border-gray-800">
-      {/* Header */}
+      
       <div className="text-center mb-8">
         <h1 className="text-3xl font-bold">Create Account</h1>
         <p className="text-gray-500 dark:text-gray-400 mt-2">
@@ -97,7 +97,7 @@ const RegisterForm = () => {
               </FormItem>
             )}
           />
-          {/* Email Field */}
+     
           <FormField
             control={form.control}
             name="email"
@@ -135,7 +135,7 @@ const RegisterForm = () => {
             )}
           />
 
-          {/* Password Field */}
+        
           <FormField
             control={form.control}
             name="password"
