@@ -25,7 +25,6 @@ const SummarizeArticle = ({ article }: { article: IArticle }) => {
     } else {
       setSummary("");
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [open]);
 
   const handleSummarize = async () => {
@@ -35,11 +34,11 @@ const SummarizeArticle = ({ article }: { article: IArticle }) => {
       if (response.success) {
         setSummary(response.data.summary);
       } else {
-        setSummary("❌ Failed to generate summary. Please try again.");
+        setSummary("Failed to generate summary. Please try again.");
       }
     } catch (error) {
       console.error("Summarization failed:", error);
-      setSummary("⚠️ Something went wrong while summarizing.");
+      setSummary("Something went wrong while summarizing.");
     } finally {
       setIsLoading(false);
     }
@@ -48,7 +47,7 @@ const SummarizeArticle = ({ article }: { article: IArticle }) => {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button variant="ghost" size="sm" className="gap-1">
+        <Button variant="ghost" size="sm" className="gap-1 cursor-pointer">
           <Sparkles className="h-4 w-4" />
           Summarize Article
         </Button>

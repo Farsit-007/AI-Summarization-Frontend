@@ -48,7 +48,7 @@ const ViewArticle = ({ id }: { id: string }) => {
         <Button
           variant="ghost"
           size="sm"
-          className="text-blue-600 hover:text-blue-700 hover:bg-blue-50"
+          className="text-blue-600 hover:text-blue-700 hover:bg-blue-50 cursor-pointer"
         >
           <Eye className="h-4 w-4 mr-2" />
           View

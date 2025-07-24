@@ -24,11 +24,7 @@ const DeleteModal = ({ id }: { id: string }) => {
       if (id) {
         const res = await deleteArticle(id);
         if (res.success) {
-          toast.success(
-            status === "Upcoming"
-              ? "Booking cancelled successfully"
-              : "Booking deleted successfully"
-          );
+          toast.success("Article deleted successfully");
           setOpen(false);
         } else {
           toast.error(res.message);
@@ -46,7 +42,7 @@ const DeleteModal = ({ id }: { id: string }) => {
         <Button
           variant="ghost"
           size="sm"
-          className="text-red-600 hover:text-red-700 hover:bg-red-50"
+          className="text-red-600 hover:text-red-700 cursor-pointer hover:bg-red-50"
         >
           <Trash2 className="h-4 w-4 mr-2" />
           Delete

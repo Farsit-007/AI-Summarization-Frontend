@@ -19,17 +19,22 @@ const Breadcrum = () => {
   }
   return (
     <div className="flex flex-col my-10 sm:flex-row gap-4 items-center justify-end p-4 bg-white rounded-lg shadow-sm border border-gray-200 mb-6">
-      <div className="flex  gap-2">
-        <Button asChild className="bg-black text-white hover:bg-gray-800">
-          <Link href="/create-article"> Create Article</Link>
+      <div className="flex justify-between gap-2">
+        <Button asChild className="bg-black  cursor-pointer text-white hover:bg-gray-800">
+          <Link href="/">All Article</Link>
         </Button>{" "}
-        <Button
-          variant="outline"
-          className="border-black text-black hover:bg-gray-100"
-          onClick={handleLogout}
-        >
-          Logout
-        </Button>
+        <div className="flex  gap-2">
+          <Button asChild className="bg-black cursor-pointer text-white hover:bg-gray-800">
+            <Link href="/create-article"> Create Article</Link>
+          </Button>{" "}
+          <Button
+            variant="outline"
+            className="border-black text-black cursor-pointer hover:bg-gray-100"
+            onClick={handleLogout}
+          >
+            Logout
+          </Button>
+        </div>
       </div>
     </div>
   );
